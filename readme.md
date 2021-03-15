@@ -6,7 +6,7 @@ Motivos pelo qual usei o Adonis v5:
   * ORM
 
 ## Exemplo de requests para API:
-api/@developer/request.http
+[api/@developer/request.http](https://github.com/ymoreiratiti/TestePraticoNode/blob/main/api/%40developer/request.http)
 
 ## Regra de calculo dos juros
 * Documentação sobre o calculo de juros e mora: https://nimbly.com.br/blog/como-calcular-multa-e-juros-de-boletos-atrasados/
