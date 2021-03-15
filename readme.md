@@ -1,12 +1,25 @@
-## Build
-Para efetuar o build é necessário possuír o docker
+## Executando aplicação
+1. Faça o build do backend/frontend
 ```shell
-bash build.sh
+cd devops && bash build.sh
 ```
+
+2. Execute o setup do projeto
+```shell
+cd devops && bash setup.sh
+```
+
+3. Acesse http://localhost:5000
+
+## FrontEnd
+Motivos pelo qual usei o [Quasar Framework](https://quasar.dev/):
+  * Conjunto de recursos já integrados evitando gasto cognitivo com arquitetura e boilerplate
+  * Typescript com ESLINT e Prettier configurado
+  * Vue 2, Vue Router, Vuex, Axios, suporte para o IE11, etc... pré-configurado
 
 ## BackEnd
 Motivos pelo qual usei o [Adonis v5](https://preview.adonisjs.com/):
-  * Framework perfeito para POC, poís já vem com um conjunto de recursos já integrados evitando gasto cognitivo com arquitetura e boilerplate
+  * Conjunto de recursos já integrados evitando gasto cognitivo com arquitetura e boilerplate
   * Typescript com ESLINT e Prettier configurado
   * Dotenv
   * ORM
