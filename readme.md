@@ -1,3 +1,9 @@
+## Build
+Para efetuar o build é necessário possuír o docker
+```shell
+bash build.sh
+```
+
 ## BackEnd
 Motivos pelo qual usei o Adonis v5:
   * Framework perfeito para POC, poís já vem com um conjunto de recursos já integrados evitando gasto cognitivo com arquitetura e boilerplate
