@@ -1,0 +1,30 @@
+### Retorna todas as contas
+GET http://localhost:5000/api/Contas
+
+### Retorna os dados da conta 1
+GET http://localhost:5000/api/Contas/1
+
+### Cadastra uma nova conta
+POST http://localhost:5000/api/Contas HTTP/1.1
+content-type: application/json
+
+{
+  "nome": "Condominio",
+  "valor_original": 585.93,
+  "data_vencimento": "2021-03-01",
+  "data_pagamento": "2021-03-27"
+}
+
+### Cadastra uma nova conta
+PATCH http://localhost:5000/api/Contas/6 HTTP/1.1
+content-type: application/json
+
+{
+  "nome": "Condominio",
+  "valor_original": 620.30,
+  "data_vencimento": "2021-03-05",
+  "data_pagamento": "2021-03-20"
+}
+
+### Exclui uma conta
+DELETE http://localhost:5000/api/Contas/6
