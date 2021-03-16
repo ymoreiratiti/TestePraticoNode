@@ -31,9 +31,11 @@ Motivos pelo qual usei o [Adonis v5](https://preview.adonisjs.com/):
 * Documentação sobre o calculo de juros e mora: https://nimbly.com.br/blog/como-calcular-multa-e-juros-de-boletos-atrasados/
 * Conta os dias à partir da data de vencimento, incluindo a data de pagamento
 
+<!--
 ## Questionamentos sobre a regra de negócio:
 * Serviços
   * Inclusão de conta a pagar
     * A rotina serve para inserir contas pendentes de pagamento? Se sim o campo "Data de pagamento" não pode ser obrigatório (Conforme informado na RN), poís a informação ainda não existe no momento do lançamento do registro
   * Listagem das contas cadastradas
     * Se existe a Data de Vencimento e a Data de Pagamento, por que persistir a quantidade de dias de atraso? Essa informação é alterada diariamente e dependendo do tamanho do banco de dados pode ser necessário um workter/crontab para atualizar essa informação 
+-->
