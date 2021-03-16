@@ -1,8 +1,12 @@
-import { RouteConfig } from 'vue-router';
+import { RouteConfig } from 'vue-router'
 
 const routes: RouteConfig[] = [
   {
     path: '/',
+    redirect: '/Contas'
+  },
+  {
+    path: '/Contas',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') }
@@ -15,6 +19,6 @@ const routes: RouteConfig[] = [
     path: '*',
     component: () => import('pages/Error404.vue')
   }
-];
+]
 
-export default routes;
+export default routes

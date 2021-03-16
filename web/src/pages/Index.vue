@@ -1,49 +1,56 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page>
+  <q-table
+      title="Contas"
+      :data="contas"
+      :columns="columns"
+      :pagination.sync="pagination"
+      row-key="id"
+    >
+
+     <template v-slot:body-cell-id="props">
+        <q-td :props="props">
+          <q-btn :to="`/Contas/${props.value.toString()}`" flat icon="edit" color="primary"/>
+        </q-td>
+      </template>
+
+    </q-table>
   </q-page>
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/CompositionComponent.vue';
-import { defineComponent, ref } from '@vue/composition-api';
+import { defineComponent } from '@vue/composition-api'
+import { formatToBRL, formatToNumber } from 'brazilian-values'
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { ExampleComponent },
-  setup() {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
+  data () {
+    return {
+      contas: [],
+      columns: [
+        { name: 'nome', label: 'Nome', field: 'nome' },
+        { name: 'valor_original', label: 'Valor Original', field: 'valor_original', format: formatToBRL },
+        { name: 'valor_corrigido', label: 'Valor Corrigido', field: 'valor_corrigido', format: formatToBRL },
+        { name: 'dias_atrasado', label: 'Quantidade de dias atrasado', field: 'dias_atrasado', format: formatToNumber },
+        { name: 'data_pagamento', label: 'Data de pagamento', field: 'data_pagamento', format: (val:string) => val.split('-').reverse().join('/') },
+        { name: 'id', label: '', field: 'id' }
+      ],
+      pagination: {
+        sortBy: 'id',
+        rowsPerPage: null,
+        descending: false
       }
-    ]);
-    const meta = ref<Meta>({
-      totalCount: 1200
-    });
-    return { todos, meta };
+    }
+  },
+  mounted () {
+    this.contasRefresh()
+  },
+  methods: {
+    async contasRefresh () {
+      const { data } = await this.$axios.get('/Contas')
+      console.log('data', data)
+      this.contas = data
+    }
   }
-});
+})
 </script>
