@@ -1,12 +1,18 @@
 <template>
-  <q-page>
-  <q-table
+  <q-page class="padding">
+
+    <q-table
       title="Contas"
+      dense
       :data="contas"
       :columns="columns"
       :pagination.sync="pagination"
       row-key="id"
     >
+     <template v-slot:top>
+       <q-space />
+       <q-btn to="/Contas/0" flat label="Nova conta" icon="add" color="primary"/>
+     </template>
 
      <template v-slot:body-cell-id="props">
         <q-td :props="props">
@@ -23,7 +29,7 @@ import { defineComponent } from '@vue/composition-api'
 import { formatToBRL, formatToNumber } from 'brazilian-values'
 
 export default defineComponent({
-  name: 'PageIndex',
+  name: 'PageContasIndex',
   data () {
     return {
       contas: [],
@@ -48,7 +54,6 @@ export default defineComponent({
   methods: {
     async contasRefresh () {
       const { data } = await this.$axios.get('/Contas')
-      console.log('data', data)
       this.contas = data
     }
   }

@@ -9,7 +9,8 @@ const routes: RouteConfig[] = [
     path: '/Contas',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/contas/Index.vue') },
+      { path: ':id', component: () => import('pages/contas/Show.vue') }
     ]
   },
 
